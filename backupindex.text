@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/modal-popup.css') }}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="icon" href="{{ url_for('static', filename='img/new-logo.png') }}">
+</head>
+<title>SWFSC</title>
+
+<body>
+
+  <div class="navbar">
+    <a class="imglogo" href="{{ url_for('home') }}"><img
+        src="{{ url_for('static', filename='img/SWOF_Logo_1-01.png') }}" class="navbar-logo" alt="โลโก้"></a>
+    <div class="menu" id="myMenu">
+      <a href="{{ url_for('home') }}">หน้าแรก</a>
+      <a href="{{ url_for('home') }}#news">ตารางการแข่งขัน</a>
+      <a href="{{ url_for('tableresult')}}">ผลการแข่งขัน</a>
+      <a class="navBtn" href="{{ url_for('register') }}">ลงทะเบียน</a>
+    </div>
+    <div class="hamburger-menu" onclick="toggleHam(this)">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+  </div>
+
+  <div class="empty"></div>
+
+  <div class="bg-top">
+    <img src="{{ url_for('static', filename='img/bg-top-new.jpg') }}" alt="">
+    <img src="{{ url_for('static', filename='img/mobile.jpg') }}" alt="">
+  </div>
+
+  <div class="all-contents">
+    <div class="content-homepage">
+      <div class="left-contents">
+        <div class="main-contents">
+          <h1 style="color: #033161;margin-bottom: 2rem;">ยินดีต้อนรับ</h1>
+          <p><b>SINGHA WORLD OF FOOTBALL SKILLS CHALLENGE</b></p>
+          <p>สิงห์ จัดทัวนาเมนต์การแข่งขันทักษะฟุตบอลรูปแบบใหม่ เฟ้นหาสุดยอดทีม ท้าดวลนักฟุตบอลสโมสรเชลซี</p>
+          <p>พาทีมชนะเลิศ บินลัดฟ้าตรงสู่ประเทศอังกฤษ พร้อมรับชมฟุตบอลพรีเมียร์ลีกนัดปิดท้ายฤดูกาล 2023/24</p>
+          <p>สอบถามรายละเอียดเพิ่มเติมได้ทาง Facebook :&emsp; <a
+              href="https://www.facebook.com/singhaworldoffootball?locale=th_TH">Singha World of Football</a></p>
+        </div>
+        <btn><a href="{{ url_for('register') }}">สมัครเข้าร่วมการแข่งขัน</a></btn>
+      </div>
+      <!-- <div class="image-right"></div> -->
+    </div>
+    <!-- The modal -->
+    <div id="videoModal" class="modal-youtube">
+      <!-- Modal content -->
+      <div class="modal-content-youtube">
+        <p class="close-button" id="closeModalBtn">&times;</p>
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/JZ1jr94IyEc?si=9GO_PA-YlOn4oZdG&autoplay=1&mute=1"
+            title="SINGHA WORLD OF FOOTBALL SKILLS CHALLENGE" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen autoplay></iframe>
+        </div>
+      </div>
+    </div>
+    <div id="news" class="main">
+      <h1 style="color: #033161;">SINGHA WORLD OF FOOTBALL SKILLS CHALLENGE</h1>
+      <h1 style="color: #033161;margin-bottom: 1rem;">แบ่งออกทั้งหมด 2 รอบ</h1>
+      <div class="Winnner">
+        <h1>รอบคัดเลือกภูมิภาค</h1>
+      </div>
+      <div class="tabledata">
+        <div class="data">
+          <table>
+            <thead>
+              <tr>
+                <th>ภูมิภาค</th>
+                <th>วันที่</th>
+                <th>สนาม</th>
+                <th>จังหวัด</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="ภูมิภาค">ภาคเหนือ</td>
+                <td data-label="วันที่">วันเสาร์ 2 มีนาคม 2567</td>
+                <td data-label="สนาม">สนาม CM Trafford Arena</td>
+                <td data-label="จังหวัด">จ.เชียงใหม่</td>
+              </tr>
+              <tr>
+                <td data-label="ภูมิภาค">ภาคตะวันออกเฉียงเหนือ</td>
+                <td data-label="วันที่">วันเสาร์ 9 มีนาคม 2567</td>
+                <td data-label="สนาม">สนาม Major Arena </td>
+                <td data-label="จังหวัด">จ.ขอนแก่น</td>
+              </tr>
+              <tr>
+                <td data-label="ภูมิภาค">ภาคใต้</td>
+                <td data-label="วันที่">วันเสาร์ 16 มีนาคม 2567</td>
+                <td data-label="สนาม">สนาม Sport Arena</td>
+                <td data-label="จังหวัด">จ.สงขลา</td>
+              </tr>
+              <tr>
+                <td data-label="ภูมิภาค">ภาคตะวันออก</td>
+                <td data-label="วันที่">วันเสาร์ 23 มีนาคม 2567</td>
+                <td data-label="สนาม">สนาม Sriracha Arena</td>
+                <td data-label="จังหวัด">จ.ชลบุรี</td>
+              </tr>
+              <tr>
+                <td data-label="ภูมิภาค">ภาคกลาง</td>
+                <td data-label="วันที่">วันเสาร์ 30 มีนาคม 2567</td>
+                <td data-label="สนาม">สนาม Future Arena</td>
+                <td data-label="จังหวัด">กรุงเทพมหานคร</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="main-data">
+        <div class="Winnner">
+          <h1>รอบชิงชนะเลิศ</h1>
+        </div>
+        <div class="tabledata">
+          <div class="data">
+            <table>
+              <thead>
+                <tr>
+                  <th>ภาคกลาง</th>
+                  <th>วันที่</th>
+                  <th>สนาม</th>
+                  <th>จังหวัด</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="ภูมิภาค">ภาคกลาง</td>
+                  <td data-label="วันที่">วันอาทิตย์ 31 มีนาคม 2567</td>
+                  <td data-label="สนาม">สนาม Future Arena</td>
+                  <td data-label="จังหวัด">กรุงเทพมหานคร</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="dataRegis">
+        <!-- <div class="imagLeft"></div> -->
+        <div id="Dataright" class="Dataright">
+          <!-- toggle 1 -->
+          <div class="toggle-container">
+            <input id="toggle-example-3" class="toggle-input" type="checkbox">
+            <label for="toggle-example-3" class="toggle-label">
+              <span class="toggle-text">3 Skills Challenge –<br> รูปแบบการแข่งขันในแต่ละทักษะ</span>
+              <span class="toggle-handle"></span>
+            </label>
+            <div class="toggle-content">
+              <img src="{{ url_for('static', filename='img/step1.jpg') }}" alt="" width="300">
+              <!-- <p>โดยแต่ละทีมจะได้แข่งขัน Skills Challenge ทั้งหมด 3 รูปแบบ ดังต่อไปนี้</p> -->
+              <li><b>การจ่ายบอล ( Passing Challenge )</b></li>
+              <p>สมาชิกทีมแต่ละคน จะได้ลูกฟุตบอล 5 ลูก รวมทั้งหมด 20 ลูก สำหรับเก็บคะแนนใน Passing Challenge</p><br>
+              <p><b>ทำการจ่ายฟุตบอลตามเป้าคะแนน 1 – 5 ตามลำดับ โดยคะแนนแต่ละเป้าจะเรียงคะแนนตามลำดับ 1 – 5 คะแนน</b></p>
+              <br>
+              <p>นำคะแนนของสมาชิกแต่ละคนมารวมกัน = คะแนนรวมของทีมใน Passing Challenge</p>
+              <img src="{{ url_for('static', filename='img/step2.jpg') }}" alt="" width="300">
+              <li><b>การยิงประตู ( Shooting Challenge )</b></li>
+              <p>สมาชิกทีมแต่ละคน จะได้ลูกฟุตบอล 5 ลูก รวมทั้งหมด 20 ลูกสำหรับเก็บคะแนน Shooting Challenge</p><br>
+              <p><b>ทำการยิงฟุตบอลตามเป้าคะแนนไหนก็ได้ตามถนัด โดยคะแนนแต่ละเป้าจะถูกแบ่งออกเป็น 2 คะแนน และ 5 คะแนน</b>
+              </p><br>
+              <p>นำคะแนนของสมาชิกแต่ละคนมารวมกัน = คะแนนรวมของทีมใน Shooting Challenge</p>
+              <img src="{{ url_for('static', filename='img/step3.jpg') }}" alt="" width="300">
+              <li><b>ความแม่นยำ ( Cross Bar Challenge )</b></li>
+              <p>สมาชิกทีมแต่ละคน จะได้ลูกฟุตบอล 5 ลูก รวมทั้งหมด 20 ลูก สำหรับเก็บคะแนน Cross Bar Challenge </p><br>
+              <p><b>ทำการยิงฟุตบอลให้ชนคานจากระยะที่กำหนด โดยคะแนนแต่ละลูกที่ทำได้ เท่ากับ 5 คะแนน</b></p><br>
+              <p>นำคะแนนของสมาชิกแต่ละคนมารวมกัน = คะแนนรวมของทีมใน Cross Bar Challenge</p><br>
+            </div>
+          </div>
+
+          <!-- toggle 2 -->
+          <div class="toggle-container">
+            <input id="toggle-example-4" class="toggle-input" type="checkbox">
+            <label for="toggle-example-4" class="toggle-label">
+              <span class="toggle-text">กฎ กติกา การแข่งขันในรอบคัดเลือก <br>และ รอบชิงชนะเลิศ</span>
+              <span class="toggle-handle"></span>
+            </label>
+            <div class="toggle-content">
+              <h1><b>รอบคัดเลือกภูมิภาค</b></h1><br>
+              <p>สมาชิกในแต่ละทีมจะได้แข่งขันทั้งหมด <b>3</b> Skills Challenge</p>
+              <p>นำคะแนนของสมาชิกทั้ง 4 คนมารวมกันเป็น <b>คะแนนของทีม</b></p><br>
+              <p>ทีมอันดับ 1 – 16 ที่ทำคะแนนรวมได้ดีที่สุดได้สิทธิ์ผ่านเข้ารอบไปแข่งขันรอบชิงชนะเลิศ วันอาทิตย์ 31
+                มีนาคม 2567 สนาม Future Arena กรุงเทพมหานคร</p><br>
+              <h1><b>รอบชิงชนะเลิศ</b></h1><br>
+              <p><b>ทีมผ่านเข้ารอบชิงชนะเลิศ จำนวนทั้งหมด 80 ทีม</b></p><br>
+
+              <p>ทำการแข่งขันในรูปแบบ Knock Out โดยแบ่งการแข่งขันเป็นรอบดังต่อไปนี้</p><br>
+
+              <p><b>80 ทีมสุดท้าย </b></p>
+              <p>ทำการจับฉลากแบ่งสาย 20 สาย สายละ 4 ทีม</p>
+              <p>ทีมที่ทำคะแนนรวมทั้ง 3 Challenge ได้อันดับ 1 และ 2 ผ่านเข้ารอบต่อไป</p><br>
+
+              <p><b>40 ทีมสุดท้าย </b></p>
+              <p>ทำการจับฉลากแบ่งสาย 10 สาย สายละ 4 ทีม</p>
+              <p>ทีมที่ทำคะแนนรวมทั้ง 3 Challenge ได้อันดับ 1 และ 2 ผ่านเข้ารอบต่อไป</p><br>
+
+              <p><b>20 ทีมสุดท้าย </b></p>
+              <p>ทำการจับฉลากแบ่งสาย 4 สาย สายละ 5 ทีม</p>
+              <p>ทีมที่ทำคะแนนรวมทั้ง 3 Challenge ได้อันดับ 1 ผ่านเข้ารอบชิงชนะเลิศ</p><br>
+
+              <p><b>รอบชิงชนะเลิศ </b></p>
+              <p>ทีมที่ทำคะแนนรวมทั้ง 3 Challenge ได้อันดับ 1 ได้รับรางวัลชนะเลิศ</p><br>
+
+            </div>
+
+          </div>
+
+
+          <!-- toggle 3 -->
+          <div class="toggle-container">
+            <input id="toggle-example" class="toggle-input" type="checkbox">
+            <label for="toggle-example" class="toggle-label">
+              <span class="toggle-text">คุณสมบัติของทีมและสมาชิก<br>&ensp;เข้าร่วมการแข่งขัน</span>
+              <span class="toggle-handle"></span>
+            </label>
+            <div class="toggle-content">
+              <li>สมาชิกต้องมีผู้เข้าแข่งขัน <b>ทีมละ 4 คน</b></li>
+              <li>ผู้เข้าแข่งขันต้องมีอายุ <b>18 ปี ขึ้นไป</b> ไม่จำกัดเพศ ( ก่อนหรือภายในปี พ.ศ. 2547 )</li>
+              <li>ผู้เข้าแข่งขันมี <b>สัญชาติไทย</b> เท่านั้น</li>
+              <li class="sp">ไม่มีค่าสมัครทุกสนาม
+              </li>
+              <!-- <li class="sp">ค่าสมัครทีมละ <b>800 บาท</b>&nbsp; ได้รับของจากทาง SINGHA WORLD OF FOOTBALL มูลค่า 600 บาท
+                <br>&emsp;&nbsp; ในวันแข่งขันรอบคัดเลือกภูมิภาค
+              </li> -->
+              <li class="sps" style="display: none;">ค่าสมัครทีมละ <b>800 บาท</b>&nbsp; ได้รับของจากทาง SINGHA WORLD OF
+                FOOTBALL มูลค่า 600 บาท ในวันแข่งขันรอบคัดเลือกภูมิภาค</li>
+              <p>รับสมัครตั้งแต่วันนี้ - ก่อนสนามสุดท้ายรอบคัดเลือก 30 มีนาคม 2567</p>
+              <p>หมายเหตุ ควรสมัครเข้าร่วมการแข่งขันล่วงหน้าอย่างน้อย 1 อาทิตย์ รับทีมเข้าร่วมการแข่งขันจำนวนจำกัด </p>
+              <p>สามารถทำการสมัครเข้าร่วมการแข่งขันได้ทุกสนาม หากทีมของท่าน ยังไม่ผ่านเข้ารอบชิงชนะเลิศ</p>
+              <p>สอบถามรายละเอียดเพิ่มเติมได้ทาง Facebook : <a
+                  href="https://www.facebook.com/singhaworldoffootball?locale=th_TH">Singha World of Football</a></p>
+            </div>
+          </div>
+
+          <!-- toggle 4 -->
+          <div class="toggle-container">
+            <input id="toggle-example-2" class="toggle-input" type="checkbox">
+            <label for="toggle-example-2" class="toggle-label">
+              <span class="toggle-text">วิธีการสมัครเข้าร่วมการแข่งขัน</span>
+              <span class="toggle-handle"></span>
+            </label>
+            <div class="toggle-content">
+              <p>SINGHA WORLD OF FOOTBALL SKILLS CHALLENGE</p>
+              <p>รับสมัครเข้าร่วมการแข่งขันผ่านทาง <a href="#">https://swofskillschallenge.com/</a> เท่านั้น</p>
+              <li>PDPA การยินยอมให้ในการบันทึกภาพและวีดีโอ</li>
+              <li>ชื่อทีม</li>
+              <li>ชื่อ นามสกุล พร้อม วัน เดือน ปีเกิด</li>
+              <li>เบอร์โทรศัพท์ สำหรับติดต่อ</li>
+
+              <p>รับสมัครตั้งแต่วันนี้ - ก่อนสนามสุดท้ายรอบคัดเลือก 30 มีนาคม 2567</p><br>
+              <p>หมายเหตุ<br>วันแข่งขันสมาชิกทีมแต่ละคนต้องนำบัตรประชาชนตัวจริงมายืนยันตน
+                (ไม่อนุญาตให้ใช้สำเนาบัตรเด็ดขาด)</p><br>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="rewardCom">
+        <div class="dataReward" id="btnFooter">
+          <div class="FT-reward">
+            <h1 style="margin-bottom: 20px;margin-top: 20px;color: #05256F;">รางวัลการแข่งขัน</h1>
+            <p style="margin-bottom: 2rem;">SINGHA WORLD OF FOOTBALL SKILLS CHALLENGE </p>
+          </div>
+          <p><b>รอบคัดเลือก</b></p>
+          <li>
+            <p>อันดับ 1</p>&emsp;<p>เงินรางวัล 10,000 บาท</p>
+          </li>
+          <li>
+            <p>อันดับ 2</p>&emsp;<p>เงินรางวัล 5,000 บาท</p>
+          </li>
+          <li>
+            <p>อันดับ 3</p>&emsp;<p>เงินรางวัล 3,000 บาท</p>
+          </li>
+          <br>
+          
+            <p><b>เงินสนับสนุนค่าเดินทาง</b></p>
+            <li><p>อันดับ 1 - 16 ในแต่ละสนามจะได้รับเงินสนับสนุนค่าเดินทางสำหรับการมาแข่งขันรอบชิงชนะเลิศ ดังต่อไปนี้</p></li>
+            <div class="travalsubport">
+              <li><p>สนามเชียงใหม่ , สนามขอนแก่น <br>, สนามสงขลา </p></li>
+              <li><p><b>ทีมละ 5,000 บาท</b></p></li>
+              <li><p>สนามชลบุรี</p></li>
+              <li><p><b>ทีมละ 3,000 บาท</b></p></li>
+              <li><p>สนามกรุงเทพฯ</p></li>
+              <li><p><b>ทีมละ 2,000 บาท</b></p></li>
+            </div>
+            <br>
+            
+          <p><b>รอบชิงชนะเลิศ</b></p>
+          <li>
+            <p style="white-space: nowrap;">อันดับ 1</p>&emsp;<p style="white-space: wrap;">เงินรางวัล 30,000 บาท บินลัดฟ้าตรงสู่ประเทศอังกฤษทั้งทีม
+              พร้อมรับชมฟุตบอลพรีเมียร์ลีกนัดปิดท้ายฤดูกาล 2023/24 และแข่งขัน Skills Challenge กับนักฟุตบอลสโมสรเชลซี
+            </p>
+          </li>
+          <li>
+            <p>อันดับ 2</p>&emsp;<p>เงินรางวัล 20,000 บาท</p>
+          </li>
+          <li style="margin-bottom: 2rem;">
+            <p>อันดับ 3</p>&emsp;<p>เงินรางวัล 10,000 บาท</p>
+          </li>
+          <div class="bg-content">
+            <a class="btnFT" href="{{ url_for('register') }}">สมัครเข้าร่วมการแข่งขัน</a>
+          </div>
+          <div class="FT-reward">
+            <p>สอบถามรายละเอียดเพิ่มเติมได้ทาง <br>Facebook : <a
+                href="https://www.facebook.com/singhaworldoffootball?locale=th_TH">Singha World of Football</a></p>
+            <p>เบอร์โทร: คุณปองธิดา <a href="tel:02 659 2090"> 02 659 2090</a>  / คุณหัทยา <a href="tel:02 659 2252"> 02 659 2252</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-main">
+        <hr>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <img src="{{ url_for('static', filename='img/SWOF_Logo_1-01.png') }}" alt="โลโก้" class="logoFT" />
+    <img src="{{ url_for('static', filename='img/AW_Singha Chelsea Logo [Singha Corp]_2023-02.png') }}" alt="โลโก้"
+      class="logo-footer" />
+    <div class="co-footer">
+      <!-- <p>co – sponsored by</p> -->
+      <img src="{{ url_for('static', filename='img/co.png') }}" alt="โลโก้" />
+    </div>
+    <img src="{{ url_for('static', filename='img/Logo_Volt-02.png') }}" alt="โลโก้" class="logoFTs" />
+
+  </footer>
+
+  <script src="https://kit.fontawesome.com/32a2f35189.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="{{ url_for('static', filename='js/add-form.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/responsive.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/detect.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/toggle.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/empty.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/Modalpolicy.js') }}"></script>
+
+
+</body>
+
+
+</html>

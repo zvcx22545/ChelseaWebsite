@@ -1,0 +1,22 @@
+.main {
+  align-items: center;
+  text-align: center;
+}
+.main hr{
+  margin-bottom: 2rem;
+}
+
+.mb
+{
+  margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 1366px) {
+  .contents-button {
+      display: flex;
+      overflow-x: auto;
+      white-space: nowrap;
+      margin-bottom: 1.5rem;
+  }
+}
+

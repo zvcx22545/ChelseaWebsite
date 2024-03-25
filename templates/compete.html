@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/sidbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/modal-popupadmin.css') }}">
+    <script src="{{ url_for('static', filename='js/admin-page.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/preview.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/search.js') }}"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<link rel="icon" href="{{ url_for('static', filename='img/new-logo.png') }}">
+</head>
+<title>Table Competition</title>
+
+<body>
+    <div class="container">
+        <div class="left">
+            <!-- ส่วนทางซ้าย -->
+            <h1 class="logo"></h1>
+            <div class="main">
+                <br>
+                <ul class="menu">
+                    <a href="{{ url_for('adminmanagement') }}"><button class="none-active" id="teamButton"
+                            onclick="changePage('team')"><i class="bi bi-people"></i>ข้อมูลรายชื่อทีม</button></a>
+                </ul>
+                <ul class="menu">
+                    <a href="{{ url_for('admincompletion') }}"><button class="active" id="competitionButton"
+                            onclick="changePage('competition')"><i class="bi bi-boxes"></i>การแข่งขัน</button></a>
+                </ul>
+                <form action="/adminlogoff" method="post">
+                    <button class="logout" type="submit">
+                        <p><i class="bi bi-arrow-bar-right"></i>Log out</p></a>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="right">
+            <!-- ส่วนทางขวา -->
+
+            <nav>
+                <h1 id="pageTitle">การแข่งขัน</h1>
+                <h1><i class="bi bi-bell-fill" style="color:#fff;cursor: pointer;"></i></h1>
+            </nav>
+
+
+            <div class="admin-data">
+                <div class="top-data">
+                    <div class="listMenu">
+                        <button id="showScheduleButton">ตารางการแข่งขัน</button>
+                        <button id="showResultsButton">ผลการแข่งขัน</button>
+                    </div>
+                    <div class="list-menu-right">
+                        <div class="right-menu">
+                            <div class="container-excle">
+                                <form method="POST" action="/download_stadium_data" id="form-stadium">
+                                    <a href="{{ download_url }}" download="team_and_player_data.xlsx">
+                                        <button id="download-stadium"><p>ดาวน์โหลด Excel</p></button>
+                                    </a>
+                                    <input type="hidden" name="download_url" value="{{ download_url }}">
+                                </form>
+                                <form method="POST" action="/download_result_data" id="form-result">
+                                    <a href="{{ download_url }}" download="team_and_player_data.xlsx">
+                                        <button id="download-result"><p>ดาวน์โหลด Excel</p></button>
+                                    </a>
+                                    <input type="hidden" name="download_url" value="{{ download_url }}">
+                                </form>
+                            </div>
+                            <input type="search" id="searchInput1" placeholder="ค้นหาชื่อทีม...">
+                        </div>
+                        <div class="right-top">
+                            <button id="createCom"><p>เพิ่มตารางแข่ง</p></button>
+                            <button id="createresults"><p>เพิ่มตารางผล</p></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ----------------------------------------- -->
+                <div id="myModal" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <form id="tableDataForm">
+                            <div class="title-modal">
+                                <p style="color: #034694;font: bold;">การแข่งขัน</p>
+                                <p style="color: #979797;"><i style="margin-left: 5px;margin-right: 0;"
+                                        class="bi bi-arrow-right"></i> ตารางการแข่งขัน</p>
+                            </div>
+                            <label for="name">
+                                <p>ชื่อ</p>
+                                <input type="text" id="columnName" placeholder="ชื่อ">
+                            </label>
+                            <label for="state">
+                                <p>สนามแข่งขัน</p>
+                                <select id="columnStadium" name="columnStadium" required class="angle-down">
+                                    <option value>กรุณาเลือกภูมิภาค</option>
+                                    <!-- Add more options here -->
+                                    <option value="ภาคเหนือ">ภาคเหนือ</option>
+                                    <option value="ภาคกลาง">ภาคกลาง</option>
+                                    <option value="ภาคตะวันออกเฉียงเหนือ">ภาคตะวันออกเฉียงเหนือ</option>
+                                    <option value="ภาคใต้">ภาคใต้</option>
+                                    <option value="ภาคตะวันออก">ภาคตะวันออก</option>
+                                    <option value="รอบชิงชนะเลิศ">รอบชิงชนะเลิศ</option>
+
+                                    <!-- ... -->
+                                </select>
+                            </label>
+
+                            <!-- <label for="status"><p>link Map </p>
+                        <input type="text" id="columnStatus" placeholder="สถานะ">
+                    </label> -->
+                            <div class="fileImg">
+                                <label for="fileImg">
+                                    <p>อัพโหลดภาพ</p>
+                                    <input type="file" id="arenaImage" placeholder="URL รูปภาพ">
+                                </label>
+                            </div>
+                            <button type="submit">เพิ่มข้อมูลลงตาราง</button>
+                            <span class="close">ยกเลิก</span>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="myModal2" class="modal2">
+                    <div class="modal-content">
+                        <form id="tableDataForm2" action="{{ url_for('admincompletion') }}" method='POST'>
+                            <!-- แก้ไขและเพิ่มองค์ประกอบฟอร์มตามความจำเป็น -->
+                            <label for="name">
+                                <p>ชื่อ</p>
+                                <select id="columnName2" required>
+                                    {% for arena in arenaData %}
+                                    <option value="{{ arena['idarena'] }}">{{ arena['competName'] }}</option>
+                                    {% endfor %}
+                                </select>
+                            </label>
+                            <label for="state">
+                                <p>รอบการแข่งกัน</p>
+                                <select id="competition-round" name="competition-round" required class="angle-down">
+                                    <option value>กรุณาเลือกรอบแข่งขัน</option>
+                                    <!-- Add more options here -->
+                                    <option value="การคัดเลือกรอบแรก">การคัดเลือกรอบแรก</option>
+                                    <option value="การคัดเลือกรอบสอง">การคัดเลือกรอบสอง</option>
+                                    <option value="รอบรองชนะเลิศ">รอบรองชนะเลิศ</option>
+                                    <!-- ... -->
+                                </select>
+                            </label>
+                            <div class="fileImg">
+                                <label for="fileImg">
+                                    <p>อัพโหลดภาพ</p>
+                                    <input type="file" id="columnImage2" placeholder="URL รูปภาพ">
+                                </label>
+                            </div>
+                            <!-- <label for="status"><p>สถานะ</p>
+                            <input type="text" id="columnStatus2" placeholder="สถานะ">
+                        </label> -->
+                            <button type="submit">เพิ่มข้อมูลลงตาราง</button>
+                            <span class="close">ยกเลิก</span>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- -------------------------------------------------------- -->
+
+                <div id="tableOfCompetitionButton" class="page1" style="margin-top: 1rem;">
+                    <!-- เนื้อหาหน้าข้อมูลทีม ตารางที่ 1  -->
+                    <div class="tableMember" id="1table">
+                        <table id="tableCom">
+                            <thead>
+                                <tr>
+                                    <th class="col2">ชื่อ</th>
+                                    <th class="col5">สนามแข่งขัน</th>
+                                    <th class="col1" style="text-align: center;">รูปภาพ</th>
+                                    <th class="col2">สถานะ</th>
+                                    <th class="col2"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for arena in arenaData %}
+                                <tr>
+
+                                    <td>
+
+                                        <p>{{ arena['competName']}}</p>
+
+                                    </td>
+                                    <td>
+
+                                        <p>{{ arena['arenaName']}}</p>
+
+                                    </td>
+
+                                    <td style="display: flex;justify-content: center;align-items: center;">
+                                        <img src="{{ arena['image'] }}" style="width: 70%; height: 70%;"
+                                            class="clickable-image" alt="Arena Image">
+                                    </td>
+
+
+                                    <td>
+
+                                        <p>{{ arena['pending']}}</p>
+
+                                    </td>
+                                    <td>
+                                        <div class="edit">
+                                            <form action="{{ url_for('confirm_competition',arenaid=arena['idarena']) }}"
+                                                method="POST">
+                                                <input type="hidden" name="idarena" value="{{ arena['idarena'] }}">
+                                                <button class="confirm-button" style="color: green;"
+                                                    type="submit">ยืนยัน</button>
+                                            </form>
+
+                                            <form style="margin-left: -50px;" action="/delete_arena" method="post">
+                                                <input type="hidden" name="arena_id" value="{{ arena['idarena'] }}">
+                                                <button type="submit" id="delete"
+                                                    onclick="return confirm('คุณต้องการลบข้อมูลนี้ใช่หรือไม่?')">
+                                                    <p style="color: red;">ลบ</p>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="resultOfCompetitionButton" class="page2" style="margin-top: 1rem;">
+                    <!-- เนื้อหาหน้าการแข่งขัน ตารางที่ 2 -->
+                    <div class="tableMember">
+                        <table id="resultsTable">
+                            <thead>
+                                <tr>
+                                    <th class="col2">ชื่อ</th>
+                                    <th class="col1" style="text-align: center;">รูปภาพ</th>
+                                    <th class="col2">รอบการแข่งกัน</th>
+                                    <th class="col4">สถานะ</th>
+                                    <th class="col4"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for result in resultData %}
+                                <tr>
+                                    <td>
+
+                                        <p>{{ result['arenaName']}}</p>
+
+                                    </td>
+
+
+                                    <td style="display: flex;justify-content: center;align-items: center;">
+                                        <img src="{{result['image'] }} " 
+                                            class="clickable-image" alt="Arena Image">
+                                    </td>
+                                    <td>
+                                        <p>{{ result['Competition_round']}}</p>
+                                    </td>
+
+                                    <td>
+                                        <p>{{ result['pending']}}</p>
+                                    </td>
+
+                                    <td>
+                                        <div class="edit">
+                                            <form action="{{ url_for('confirm_rusult',resultid=result['idresult']) }}"
+                                                method="POST">
+                                                <input type="hidden" name="idarena" value="{{ result['idresult'] }}">
+                                                <button class="confirm-button" style="color: green;"
+                                                    type="submit">ยืนยัน</button>
+                                            </form>
+
+                                            <form action="/delete_result" method="post">
+                                                <input type="hidden" name="result_id" value="{{ result['idresult'] }}">
+                                                <button type="submit" id="delete"
+                                                    onclick="return confirm('คุณต้องการลบข้อมูลนี้ใช่หรือไม่?')">
+                                                    <p style="color: red;">ลบ</p>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</body>
+
+</html>
