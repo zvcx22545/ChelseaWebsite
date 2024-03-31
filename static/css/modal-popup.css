@@ -1,0 +1,138 @@
+/* Modal popup Youtube */
+.modal-youtube{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.6); /* White with 80% opacity */
+    z-index: 15;
+    text-align: center;
+  }
+  
+  /* Style for the modal content */
+  .modal-content-youtube {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 45%;
+  }
+  
+  /* Style for the close button */
+  .close-button {
+    position: absolute;
+    top: -30px;
+    right: -45px;
+    cursor: pointer;
+    font-size: clamp(2.8125rem, 2.1023rem + 1.8939vw, 4.375rem);
+    transition: transform 0.2s;
+}
+
+.close-button:hover {
+    animation: rotateToCircle 1s ease-in-out forwards;
+}
+
+@keyframes rotateToCircle {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.video-container {
+    width: 100%;
+    height: 55vh;
+}
+
+/* Style for the embedded iframe */
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+}
+
+
+@media (max-width:1024px)
+{
+    .close-button {
+        position: absolute;
+        top: -18px;
+        right: -55px;
+        cursor: pointer;
+        font-size: clamp(2.8125rem, 2.1023rem + 1.8939vw, 4.375rem);
+        transition: transform 0.2s;
+    }
+    .modal-content-youtube {
+        width: 60%;
+    }
+    .video-container {
+        width: 100%;
+        height: 67vh;
+    }
+
+    .close-button {
+        position: absolute;
+        top: -18px;
+        right: -38px;
+        cursor: pointer;
+        font-size: clamp(2.8125rem, 2.1023rem + 1.8939vw, 4.375rem);
+        transition: transform 0.2s;
+    }
+}
+
+@media (max-width:768px)
+{
+    .modal-content-youtube {
+        width: 85%;
+    }
+    .video-container {
+        width: 100%;
+        height: 65vh;
+    }
+}
+
+
+
+@media (max-width:640px)
+{
+    .modal-content-youtube {
+        width: 85%;
+    }
+    .video-container {
+        width: 100%;
+        height: 40vh;
+    }
+}
+
+@media (max-width:600px)
+{
+    .modal-content-youtube {
+        width: 70%;
+    }
+    .video-container {
+        width: 100%;
+        height: 30vh;
+    }
+}
+@media (max-width:500px)
+{
+    .modal-content-youtube {
+        width: 75%;
+    }
+    .video-container {
+        width: 100%;
+        height: 27vh;
+    }
+
+    .close-button {
+        position: absolute;
+        top: -18px;
+        right: -37px;
+        cursor: pointer;
+        font-size: clamp(2.8125rem, 2.1023rem + 1.8939vw, 4.375rem);
+        transition: transform 0.2s;
+    }
+}

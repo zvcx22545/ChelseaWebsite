@@ -1,0 +1,418 @@
+:root {
+  --font-color-primary: #fff;
+}
+.upload-doc-button {
+  width: 100%;
+  background: none;
+  color: #eb0000;
+  font-size: clamp(0.75rem, 0.5795rem + 0.4545vw, 1.125rem);
+  font-weight: 400;
+  line-height: normal;
+  height: 3rem;
+  border-radius: 8px;
+  border: 1px solid #979797;
+  background: #fff;
+}
+
+.upload-doc-button:hover {
+  width: 100%;
+  background: none;
+  color: #eb0000;
+  font-size: clamp(0.75rem, 0.5795rem + 0.4545vw, 1.125rem);
+  font-weight: 400;
+  line-height: normal;
+  height: 3rem;
+}
+
+.file-label {
+  margin: 0;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.add-player-btn {
+  margin-top: 1.5rem;
+}
+
+.quanlity-player {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-player-btn {
+  background: none;
+  display: inline-flex;
+  padding: 15px 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  border: 1px solid #0b266b;
+  background: #fff;
+  color: #0b266b;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.add-player-btn:hover {
+  color: white;
+}
+
+.add-player-info {
+  color: #4f4f4f;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  padding-top: 1.5rem;
+}
+
+.btn-control {
+  display: flex;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding: 12px 20px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.file-upload-info {
+  margin-bottom: 1rem;
+}
+
+.btn-control > button {
+  max-width: 196px;
+  font-size: clamp(0.75rem, 0.5795rem + 0.4545vw, 1.125rem);
+}
+
+#image-preview-container-0 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.title-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete {
+  color: red;
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+.delete:hover {
+  text-decoration: underline;
+}
+
+.field-name {
+  color: #0b266b;
+  font-size: clamp(1rem, 0.5455rem + 1.2121vw, 2rem);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+  line-height: normal;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.select-field {
+  color: #333;
+  font-weight: 600;
+  font-size: clamp(0.75rem, 0.5795rem + 0.4545vw, 1.125rem);
+  line-height: normal;
+}
+
+.confirm-player {
+  display: block;
+  margin: 3rem auto;
+  width: 30%;
+  height: 10%;
+  padding: 12px 20px;
+  gap: 12px;
+}
+.confirm-player-3 {
+  display: block;
+  margin: 0 auto;
+  width: 20%;
+  height: 10%;
+  padding: 12px 20px;
+  gap: 12px;
+}
+
+#image-preview img {
+  width: 50%;
+  /* Adjust as necessary */
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+#image-preview {
+  margin: 2.5rem 0;
+  width: 60%;
+}
+
+.container-btn {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  justify-content: center;
+}
+
+/* hr in dataStep=3 */
+.cf {
+  width: 100%;
+}
+
+.container-btn {
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.container-playment {
+  display: flex;
+  gap: 6.875rem;
+}
+
+.bank-account {
+  color: #000;
+  width: 50%;
+  font-size: clamp(0.75rem, 0.5795rem + 0.4545vw, 1.125rem);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: 700;
+}
+
+.order-playment {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: clamp(0.75rem, 0.5795rem + 0.4545vw, 1.125rem);
+  font-weight: 400;
+  line-height: normal;
+}
+
+.amount-container {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.all-amount {
+  color: #000;
+  font-size: clamp(0.75rem, 0.5795rem + 0.4545vw, 1.125rem);
+  font-weight: 600;
+  line-height: normal;
+}
+
+.amount-price {
+  display: flex;
+  width: 25%;
+  padding: 12px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  font-size: clamp(1.125rem, 0.9231rem + 0.8974vw, 2rem);
+  font-weight: 700;
+  line-height: 24px; /* 75% */
+  border-radius: 8px;
+  background: #eb0000;
+  color: var(--font-color-primary);
+}
+
+.container-qr {
+  border-radius: 14.5%;
+  background: #034694;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  padding-bottom: 4rem;
+}
+
+.Scan-qr {
+  color: var(--font-color-primary);
+  font-size: clamp(1.125rem, 0.8798rem + 1.0897vw, 2.1875rem);
+  text-align: center;
+  font-weight: 700;
+  line-height: normal;
+  margin: 1rem 0;
+}
+
+.qr-playment {
+  max-width: 70%;
+}
+
+.qr-time {
+  color: var(--font-color-primary);
+  font-size: clamp(0.75rem, 0.6346rem + 0.5128vw, 1.25rem);
+  font-weight: 300;
+  line-height: normal;
+  margin: 1rem 0;
+}
+
+.save-qr {
+  background-color: var(--font-color-primary);
+  display: flex;
+  width: auto;
+  padding: 12px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  color: #034694;
+  font-size: clamp(0.75rem, 0.6346rem + 0.5128vw, 1.25rem);
+  font-weight: 700;
+  line-height: 24px; /* 120% */
+  margin-bottom: 1rem;
+}
+.save-qr:hover {
+  background-color: var(--font-color-primary);
+  display: flex;
+  width: auto;
+  padding: 12px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  color: #034694;
+  font-size: clamp(0.75rem, 0.6346rem + 0.5128vw, 1.25rem);
+  font-weight: 700;
+  line-height: 24px; /* 120% */
+}
+
+.qrPlayment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+}
+
+.detail-playment {
+  width: 60%;
+}
+
+.upload-playment-button {
+  width: 100%;
+  background: none;
+  color: #eb0000;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: normal;
+  height: 3rem;
+  border-radius: 8px;
+  border: 1px solid #979797;
+  background: #fff;
+}
+
+.upload-playment-button:hover {
+  width: 100%;
+  background: none;
+  color: #eb0000;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: normal;
+  height: 3rem;
+}
+
+.file-playment {
+  width: 60%;
+}
+
+.next-2
+{
+  width: 100%;
+}
+
+.container-form
+{
+  margin: 1rem 0;
+}
+
+.numberpayment
+{
+  width: 50%;
+  font-size: clamp(0.75rem, 0.5795rem + 0.4545vw, 1.125rem);
+
+  /* font-size: clamp(1rem, 0.8846rem + 0.5128vw, 1.5rem); */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: 700;
+}
+
+.numberpayment i
+{
+  margin-left: 1.5rem;
+}
+
+.bi
+{
+  cursor: pointer;
+}
+
+.note-necessary
+{
+  margin: 1rem 0;
+}
+
+.modal-title-policy
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.policy-rule
+{
+  font-size: clamp(0.75rem, 0.5795rem + 0.4545vw, 1.125rem);
+}
+
+.body-policy
+{
+  font-size: clamp(0.75rem, 0.5795rem + 0.4545vw, 1.125rem);
+
+}
+
+.accept-container
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto;
+}
+
+.accept-c
+{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.confirmPolicy
+{
+  display: flex;
+  margin: 0 auto;
+  width: 35%;
+  justify-content: center;
+  align-items: center;
+  height: 5.3vh;
+}
+
+.policy-rule
+{
+  font-weight: 600;
+}
+
