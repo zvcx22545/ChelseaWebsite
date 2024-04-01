@@ -34,7 +34,7 @@ UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 credentials = service_account.Credentials.from_service_account_file(
-    "E:\Document-Work\chalsea-1\json\mybeer-project-8e1bbcd5496e.json",
+    "E:\MyProject\Chelsea-1\json\mybeer-project-8e1bbcd5496e.json",
     scopes=[ 'https://www.googleapis.com/auth/drive.file']
 )
 
@@ -182,17 +182,16 @@ def confirm():
     phoneCaptain = user_data_list[0].get('phoneCaptain')
     LineID = user_data_list[0].get('LineID')
     email = user_data_list[0].get('email')
-     # file_path = os.path.join(app.config['UPLOAD_FOLDER'], f"{teamName}.jpg")
-    
+    file_path = os.path.join(app.config['UPLOAD_FOLDER'], f"{teamName}.jpg")
     # Check if the image file exists
-    # if os.path.exists(file_path):
-    #     with open(file_path, 'rb') as image_file:
-    #         image_data = image_file.read()
-    #     folder_id = '1n-72wW1QBzvECDGyev8aqNAWxuQdvx33'
-    #     image_link = upload_to_google_drive(image_data, folder_id)
-    # else:
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as image_file:
+            image_data = image_file.read()
+        folder_id = '1n-72wW1QBzvECDGyev8aqNAWxuQdvx33'
+        image_link = upload_to_google_drive(image_data, folder_id)
+    else:
     # If no image file exists, set image_link to None
-    image_link = None
+        image_link = None
 
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor.execute('INSERT INTO team_db VALUES (%s, %s,%s, %s, %s, %s, %s, %s)', (teamName, stadium,captainName,phoneCaptain,email,LineID,image_link, pending,))
