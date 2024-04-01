@@ -26,8 +26,8 @@ app.config['MAIL_SERVER'] = 'smtp.fastmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
-app.config['MAIL_USERNAME'] = 'swofskillchallenge@fastmail.com'  # replace with your Gmail email
-app.config['MAIL_PASSWORD'] = 'hnnjhrc3evct4m7c'         # replace with your Gmail password
+app.config['MAIL_USERNAME'] = 'footballcompet@fastmail.com'  # replace with your Gmail email
+app.config['MAIL_PASSWORD'] = 'j3cm98sf5aplw5vy'         # replace with your Gmail password
 
 
 UPLOAD_FOLDER = 'uploads'
@@ -307,7 +307,7 @@ def checkpending(team_id):
             msg = EmailMessage(
                 "ทางคุณได้อนุมัติเข้าโครงการ SINGHA WORLD OF FOOTBALL SKILLS CHALLENGE",
                 ": สวัสดีค่ะ/ครับ ทางคุณได้อนุมัติเข้าร่วมโครงการ SINGHA WORLD OF FOOTBALL SKILLS สามารถติดตามข่าวสารเพิ่มเติมได้ที่ : Facebook : Singha World of Football",
-                "swofskillchallenge@fastmail.com",
+                "footballcompet@fastmail.com",
                 [email_value]
             )
             msg.send()
@@ -324,7 +324,7 @@ def checkpending(team_id):
             msg = EmailMessage(
                 "ขออภัยทางคุณไม่ได้อนุมัติเข้าร่วมโครงการ SINGHA WORLD OF FOOTBALL SKILLS CHALLENGE",
                 ": สวัสดีค่ะ/ครับ  ต้องขออภัยทางคุณไม่ได้อนุมัติเข้าร่วมโครงการ SINGHA WORLD OF FOOTBALL SKILLS CHALLENGE สามารถติดตามข่าวสารเพิ่มเติมได้ที่ : Facebook : Singha World of Football",
-                "swofskillchallenge@fastmail.com.com",
+                "footballcompet@fastmail.com.com",
                 [email_value]
             )
             msg.send()
